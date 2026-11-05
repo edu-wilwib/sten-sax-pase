@@ -1,9 +1,9 @@
 import random as rand
 
 datornamn = "Python"
-print("Nu ska vi spela Sten, Sax eller Påse!\nJag är {datornamn}.")
+print(f"Nu ska vi spela Sten, Sax eller Påse!\nJag är {datornamn}.")
 spelarnamn = input("\nAnge ditt spelarnamn -> ")
-antal_omgångar = input("Ange antal omgångar vi ska spela -> ")
+antal_omgångar = int(input("Ange antal omgångar vi ska spela -> "))
 
 for i in range(antal_omgångar):
     print(f"Spelomgång {i+1}\n{15*'-'}")
@@ -28,3 +28,28 @@ for i in range(antal_omgångar):
     else:
         dator_drag = "Påse"
     print(f"{datornamn} spelar: {dator_drag}")
+    if drag == "Sten":
+        if dator_drag == "Sten":
+            vinnare = None
+        elif dator_drag == "Sax":
+            vinnare = spelarnamn
+        else:
+            vinnare = datornamn
+    elif drag == "Sax":
+        if dator_drag == "Sten":
+            vinnare = datornamn
+        elif dator_drag == "Sax":
+            vinnare = None
+        else:
+            vinnare = spelarnamn
+    else:
+        if dator_drag == "Sten":
+            vinnare = spelarnamn
+        elif dator_drag == "Sax":
+            vinnare = datornamn
+        else:
+            vinnare = None
+    if vinnare:
+        print(f"Vinnare i spelomgång {i+1}: {vinnare}")
+    else:
+        print("Oavgjort.")
