@@ -5,8 +5,11 @@ print(f"Nu ska vi spela Sten, Sax eller Påse!\nJag är {datornamn}.")
 spelarnamn = input("\nAnge ditt spelarnamn -> ")
 antal_omgångar = int(input("Ange antal omgångar vi ska spela -> "))
 
+spelarpoäng = 0
+datorpoäng = 0
+
 for i in range(antal_omgångar):
-    print(f"Spelomgång {i+1}\n{15*'-'}")
+    print(f"\n\nSpelomgång {i+1}\n{15*'-'}")
     while True:
         drag = input("Välj 'Sten', Sax' eller 'Påse' -> ")
         if drag.lower() == "sten":
@@ -30,7 +33,7 @@ for i in range(antal_omgångar):
     print(f"{datornamn} spelar: {dator_drag}")
     if drag == "Sten":
         if dator_drag == "Sten":
-            vinnare = None
+            vinnare = "Oavgjort"
         elif dator_drag == "Sax":
             vinnare = spelarnamn
         else:
@@ -39,7 +42,7 @@ for i in range(antal_omgångar):
         if dator_drag == "Sten":
             vinnare = datornamn
         elif dator_drag == "Sax":
-            vinnare = None
+            vinnare = "Oavgjort"
         else:
             vinnare = spelarnamn
     else:
@@ -48,8 +51,21 @@ for i in range(antal_omgångar):
         elif dator_drag == "Sax":
             vinnare = datornamn
         else:
-            vinnare = None
-    if vinnare:
-        print(f"Vinnare i spelomgång {i+1}: {vinnare}")
-    else:
-        print("Oavgjort.")
+            vinnare = "Oavgjort"
+    print(f"\nVinnare i spelomgång {i+1}: {vinnare}!")
+    if vinnare == spelarnamn:
+        spelarpoäng += 1
+    elif vinnare == datornamn:
+        datorpoäng += 1
+
+print(f"SLUTRESULTAT\n{13*'='}")
+print(f"{spelarnamn}: {spelarpoäng}p")
+print(f"{datornamn}: {datorpoäng}p")
+if spelarpoäng > datorpoäng:
+    print(f"\nVinnare: {spelarnamn}")
+elif datorpoäng > spelarpoäng:
+    print(f"\nVinnare: {datornamn}")
+else:
+    print(f"\nVinnare: Oavgjort!")
+
+print("Programmet avslutades normalt.")
