@@ -59,11 +59,13 @@ for i in range(antal_omgångar):
         datorpoäng += 1
 
 print(f"SLUTRESULTAT\n{13*'='}")
-print(f"{spelarnamn}: {spelarpoäng}p")
-print(f"{datornamn}: {datorpoäng}p")
 if spelarpoäng > datorpoäng:
+    print(f"{spelarnamn}: {spelarpoäng}p")
+    print(f"{datornamn}: {datorpoäng}p")
     print(f"\nVinnare: {spelarnamn}")
 elif datorpoäng > spelarpoäng:
+    print(f"{datornamn}: {datorpoäng}p")
+    print(f"{spelarnamn}: {spelarpoäng}p")
     print(f"\nVinnare: {datornamn}")
 else:
     print(f"\nVinnare: Oavgjort!")
