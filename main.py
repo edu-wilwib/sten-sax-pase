@@ -3,8 +3,14 @@ import random as rand
 datornamn = "Python"
 print(f"Nu ska vi spela Sten, Sax eller Påse!\nJag är {datornamn}.")
 spelarnamn = input("\nAnge ditt spelarnamn -> ")
-antal_omgångar = int(input("Ange antal omgångar vi ska spela -> "))
-
+while True:
+    antal_omgångar = input("Ange antal omgångar vi ska spela -> ")
+    try:
+        int(antal_omgångar)
+    except ValueError:
+        continue
+    break
+antal_omgångar = int(antal_omgångar)
 spelarpoäng = 0
 datorpoäng = 0
 
